@@ -1,0 +1,28 @@
+digraph G {
+	rankdir=LR size="8,5"
+	node [color=red shape=doublecircle]
+	"abc
+
+c"
+	i
+	node [color=black shape=circle]
+	i -> "a
+
+a" [label=a]
+	"a
+
+a" -> "ab
+
+b" [label=b]
+	"ab
+
+b" -> "abc
+
+c" [label=c]
+	i -> "ab
+
+b" [label=b]
+	i -> "abc
+
+c" [label=c]
+}
