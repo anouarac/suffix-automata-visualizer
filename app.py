@@ -31,7 +31,7 @@ def generate():
     cnt += 1
     print("Total number of queries: ", cnt)
     if len(st) > 40:
-        return "<center>Graph too large. Please only input graphs with 40 nodes or less.</center>"
+        return """<h2 style="font-family: Monaco">String too large. Please input strings with at most 40 characters.</h2>"""
     print("String: ", request.form.to_dict()['string'])
     gen(st, request.form.get('links')!=None)
     workingdir = os.path.abspath(os.getcwd())
