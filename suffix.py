@@ -64,7 +64,7 @@ def insert(s):
 
 def g_label(u):
     if u == 0:
-        return "i"
+        return "0"
     global big, small
     return big[u]+'\n\n'+small[u]
 
@@ -74,17 +74,18 @@ def dfs(u, graph, show_links):
     if vis[u]:
         return
     vis[u] = True
-    if link[u] != -1 and show_links:
-        graph.edge(g_label(u), g_label(link[u]), color='blue')
     for c in to[u].keys():
         graph.edge(g_label(u), g_label(to[u][c]), label=c)
         dfs(to[u][c], graph, show_links)
+    if link[u] != -1 and show_links:
+        graph.edge(g_label(u), g_label(link[u]), color='blue', constraint='false')
+
 
 def gen(s, show_links):
     insert(s)
 
     graph = graphviz.Digraph("G", filename="./graph")
-    graph.attr(rankdir='LR', size='8,5')
+    graph.attr(rankdir='LR', size='8,5', ordering='out', label="Fig. "+s+"'s suffix automaton")
 
     graph.attr('node', shape='doublecircle', color='red')
     global cur, link, big, small
@@ -92,6 +93,8 @@ def gen(s, show_links):
     while cur > -1:
         graph.node(g_label(cur))
         cur = link[cur]
+    graph.node("", shape='none')
+    graph.edge("", "0")
     graph.attr('node', shape='circle', color='black')
     global vis
     vis = [False] * len(lens)

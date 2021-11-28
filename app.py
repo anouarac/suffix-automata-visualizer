@@ -9,13 +9,16 @@ app = Flask(__name__)
 @app.route("/")
 def input():
     return """
-    <title>Suffix automaton generator</title>
-    <center><form action="/generate" method="POST">
+    <title>Suffix Automata Visualizer</title>
+    <center>
+    <h1 style="font-family: Monaco; padding-top: 30px">Suffix Automata Visualizer</h1>
+    <h2 style="font-family: Monaco; padding-top: 100px">
+    <form action="/generate" method="POST">
     <label for="string">String:</label>
-    <input type="text" id="string" name="string" value="abc"><br><br>
-    <input type="checkbox" id="links" name="links" value="1">Show links<br><br>
-    <input type="submit" value="Visualize">
-    </form></center>"""
+    <input type="text" id="string" name="string" style="font-family: Monaco"><br><br>
+    <input type="checkbox" id="links" name="links" value="1" style="width: 20px; height:20px">Show links<br><br>
+    <input type="submit" value="Visualize" style="font-family: Monaco; font-size: 20px">
+    </form></h2></center>"""
 
 @app.route("/generate", methods=['POST'])
 def generate():
