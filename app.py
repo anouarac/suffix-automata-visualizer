@@ -18,7 +18,11 @@ def input():
     <input type="text" id="string" name="string" style="font-family: Monaco"><br><br>
     <input type="checkbox" id="links" name="links" value="1" style="width: 20px; height:20px">Show links<br><br>
     <input type="submit" value="Visualize" style="font-family: Monaco; font-size: 20px">
-    </form></h2></center>"""
+    </form></h2>
+    <footer>
+        <p style="font-family: Monaco"><a href="https://github.com/anouarac/suffix-automata-visualizer" style="color:#BF0065">anouarac</a> - 2021</p>
+    </footer>
+    </center>"""
 
 @app.route("/generate", methods=['POST'])
 def generate():
