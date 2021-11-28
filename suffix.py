@@ -74,13 +74,11 @@ def dfs(u, graph, show_links):
     if vis[u]:
         return
     vis[u] = True
-    alphabet = [chr(i) for i in range(ord('a'),ord('z')+1)]
     if link[u] != -1 and show_links:
         graph.edge(g_label(u), g_label(link[u]), color='blue')
-    for c in alphabet:
-        if c in to[u]:
-            graph.edge(g_label(u), g_label(to[u][c]), label=c)
-            dfs(to[u][c], graph, show_links)
+    for c in to[u].keys():
+        graph.edge(g_label(u), g_label(to[u][c]), label=c)
+        dfs(to[u][c], graph, show_links)
 
 def gen(s, show_links):
     insert(s)

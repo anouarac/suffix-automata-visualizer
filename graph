@@ -1,28 +1,108 @@
 digraph G {
 	rankdir=LR size="8,5"
 	node [color=red shape=doublecircle]
-	"abc
+	"EGDHFIdsa3245
 
-c"
+5"
 	i
 	node [color=black shape=circle]
-	i -> "a
+	i -> "E
+
+E" [label=E]
+	"E
+
+E" -> "EG
+
+G" [label=G]
+	"EG
+
+G" -> "EGD
+
+D" [label=D]
+	"EGD
+
+D" -> "EGDH
+
+H" [label=H]
+	"EGDH
+
+H" -> "EGDHF
+
+F" [label=F]
+	"EGDHF
+
+F" -> "EGDHFI
+
+I" [label=I]
+	"EGDHFI
+
+I" -> "EGDHFId
+
+d" [label=d]
+	"EGDHFId
+
+d" -> "EGDHFIds
+
+s" [label=s]
+	"EGDHFIds
+
+s" -> "EGDHFIdsa
 
 a" [label=a]
-	"a
+	"EGDHFIdsa
 
-a" -> "ab
+a" -> "EGDHFIdsa3
 
-b" [label=b]
-	"ab
+3" [label=3]
+	"EGDHFIdsa3
 
-b" -> "abc
+3" -> "EGDHFIdsa32
 
-c" [label=c]
-	i -> "ab
+2" [label=2]
+	"EGDHFIdsa32
 
-b" [label=b]
-	i -> "abc
+2" -> "EGDHFIdsa324
 
-c" [label=c]
+4" [label=4]
+	"EGDHFIdsa324
+
+4" -> "EGDHFIdsa3245
+
+5" [label=5]
+	i -> "EG
+
+G" [label=G]
+	i -> "EGD
+
+D" [label=D]
+	i -> "EGDH
+
+H" [label=H]
+	i -> "EGDHF
+
+F" [label=F]
+	i -> "EGDHFI
+
+I" [label=I]
+	i -> "EGDHFId
+
+d" [label=d]
+	i -> "EGDHFIds
+
+s" [label=s]
+	i -> "EGDHFIdsa
+
+a" [label=a]
+	i -> "EGDHFIdsa3
+
+3" [label=3]
+	i -> "EGDHFIdsa32
+
+2" [label=2]
+	i -> "EGDHFIdsa324
+
+4" [label=4]
+	i -> "EGDHFIdsa3245
+
+5" [label=5]
 }
