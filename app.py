@@ -15,7 +15,7 @@ def input():
     <h2 style="font-family: Monaco; padding-top: 100px">
     <form action="/generate" method="POST">
     <label for="string">String:</label>
-    <input type="text" id="string" name="string" style="font-family: Monaco"><br><br>
+    <input type="text" id="string" name="string" style="font-family: Monaco; font-size: 20px"><br><br>
     <input type="checkbox" id="links" name="links" value="1" style="width: 20px; height:20px">Show links<br><br>
     <input type="submit" value="Visualize" style="font-family: Monaco; font-size: 20px">
     </form></h2>
