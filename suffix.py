@@ -24,16 +24,14 @@ def addchar(c):
     cur = len(lens)
     lens.append(lens[last]+1)
     link.append(0)
+    small.append("")
     lasts.append(last)
     to.append({})
     big.append(big[last]+c)
-    small.append(small[last]+c)
 
     p = last
     while p >= 0 and c not in to[p]:
         to[p][c] = cur;
-        if len(small[p])+1 < len(small[cur]):
-            small[cur] = small[p]+c
         p = link[p]
 
     if p == -1:
@@ -46,15 +44,13 @@ def addchar(c):
         clone = len(lens)
         lens.append(lens[p]+1)
         link.append(link[q])
+        small.append("")
         to.append(to[q].copy())
-        small.append(small[p]+c)
         big.append(big[p]+c)
         link[cur],link[q] = clone,clone
         lasts.append(p);
         while p >= 0 and to[p][c] == q:
             to[p][c] = clone
-            if len(small[p])+1 < len(small[clone]):
-                small[clone] = small[p]+c
             p = link[p]
 
 def insert(s):
@@ -69,6 +65,15 @@ def g_label(u):
     return big[u]+'\n\n'+small[u]
 
 vis = []
+topo = []
+
+def dfs_topo(u):
+    if vis[u]:
+        return
+    vis[u] = True
+    for c in to[u].keys():
+        dfs_topo(to[u][c])
+    topo.append(u)
 
 def dfs(u, graph, show_links):
     if vis[u]:
@@ -88,15 +93,23 @@ def gen(s, show_links):
     graph.attr(rankdir='LR', size='8,5', ordering='out', label="Fig. "+s+"'s suffix automaton")
 
     graph.attr('node', shape='doublecircle', color='red')
-    global cur, link, big, small
-    terminal = cur
+    global cur, link, big, small, topo
+    global vis
+    vis = [False] * len(lens)
+    topo = []
+    dfs_topo(0)
+    topo = topo[::-1]
+    for u in topo:
+        for c in to[u]:
+            v = to[u][c]
+            if len(small[u])+1 < len(small[v]) or small[v] == "":
+                small[v] = small[u]+c
     while cur > -1:
         graph.node(g_label(cur))
         cur = link[cur]
     graph.node("", shape='none')
     graph.edge("", "0")
     graph.attr('node', shape='circle', color='black')
-    global vis
     vis = [False] * len(lens)
     dfs(0, graph, show_links)
     graph.render()
