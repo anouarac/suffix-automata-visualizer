@@ -4,7 +4,7 @@ This tool allows you to visualize the [suffix automaton](https://en.wikipedia.or
 
 ## Demo
 
-You can use the deployed web application [here](http://51.210.242.226:5000/).
+You can use the deployed web application [here](http://suffix-automata-visualizer.algorithm.city/).
 
 ## Deploy it yourself
 
